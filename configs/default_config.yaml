@@ -4,12 +4,12 @@ project:
 
 data:
   input_path: data/data.csv
-  fallback_input_path: data/data.cvs
-  text_column: Sentence
+  fallback_input_path: data/data.csv
+  text_column: Sentence（核心数据本质）
 
 watermark:
   secret_key: fin-watermark-2026
-  strategy: lexical-greenlist
+  strategy: lexical-greenlis(核心策略）
 
 detection:
   model: logistic_regression
