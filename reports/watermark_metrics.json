@@ -1,0 +1,84 @@
+{
+  "accuracy": 0.9726443768996961,
+  "macro_f1": 0.9726433659469498,
+  "roc_auc": 0.9962675535846268,
+  "confusion_matrix": [
+    [
+      159,
+      6
+    ],
+    [
+      3,
+      161
+    ]
+  ],
+  "classification_report": {
+    "0": {
+      "precision": 0.9814814814814815,
+      "recall": 0.9636363636363636,
+      "f1-score": 0.9724770642201835,
+      "support": 165.0
+    },
+    "1": {
+      "precision": 0.9640718562874252,
+      "recall": 0.9817073170731707,
+      "f1-score": 0.972809667673716,
+      "support": 164.0
+    },
+    "accuracy": 0.9726443768996961,
+    "macro avg": {
+      "precision": 0.9727766688844534,
+      "recall": 0.9726718403547672,
+      "f1-score": 0.9726433659469498,
+      "support": 329.0
+    },
+    "weighted avg": {
+      "precision": 0.9728031272814047,
+      "recall": 0.9726443768996961,
+      "f1-score": 0.9726428604705767,
+      "support": 329.0
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "preferred_ratio",
+      "weight": 2.746910353264303
+    },
+    {
+      "feature": "z_score",
+      "weight": 2.1726876877559507
+    },
+    {
+      "feature": "preferred_hit_count",
+      "weight": 1.4848295015554769
+    },
+    {
+      "feature": "token_count",
+      "weight": 0.6685568127631528
+    },
+    {
+      "feature": "avg_token_length",
+      "weight": 0.5758972490294939
+    },
+    {
+      "feature": "digit_ratio",
+      "weight": 0.2743283917740026
+    },
+    {
+      "feature": "candidate_count",
+      "weight": 0.06140574150723296
+    },
+    {
+      "feature": "punctuation_ratio",
+      "weight": 0.05968149824832079
+    },
+    {
+      "feature": "ticker_count",
+      "weight": -0.07039212496539528
+    },
+    {
+      "feature": "uppercase_ratio",
+      "weight": -0.3742116564280702
+    }
+  ]
+}

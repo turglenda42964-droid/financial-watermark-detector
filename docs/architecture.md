@@ -1,184 +1,31 @@
-# 架构设计文档
+# Architecture
 
-## 1. 系统概述
+## Overview
 
-金融时序数据水印检测系统是一个基于机器学习的检测框架，用于识别金融时序数据中嵌入的数字水印。
+The project follows a simple research pipeline:
 
-## 2. 系统架构
+1. Load a financial text corpus from `data/`.
+2. Apply a lightweight lexical watermark to create paired samples.
+3. Extract watermark-aware statistical features.
+4. Train a detector to distinguish original vs watermarked text.
+5. Export reports, figures, and reproducible artifacts.
 
-### 2.1 整体架构
+## Modules
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        用户接口层                            │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
-│  │   main.py    │  │  Jupyter NB  │  │   Python API │      │
-│  └──────────────┘  └──────────────┘  └──────────────┘      │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                        核心逻辑层                            │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
-│  │   detector   │  │   evaluator  │  │model_factory │      │
-│  └──────────────┘  └──────────────┘  └──────────────┘      │
-│  ┌──────────────┐  ┌──────────────┐                        │
-│  │data_loader   │  │feature_ext.  │                        │
-│  └──────────────┘  └──────────────┘                        │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                        基础组件层                            │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
-│  │  sklearn     │  │   xgboost    │  │  lightgbm    │      │
-│  └──────────────┘  └──────────────┘  └──────────────┘      │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
-│  │   pandas     │  │   numpy      │  │   scipy      │      │
-│  └──────────────┘  └──────────────┘  └──────────────┘      │
-└─────────────────────────────────────────────────────────────┘
-```
+- `src/financial_watermark_detector/data.py`
+  Handles corpus loading and summary generation.
+- `src/financial_watermark_detector/watermarking.py`
+  Implements lexical watermark embedding and paired dataset construction.
+- `src/financial_watermark_detector/detector.py`
+  Defines feature extraction, logistic detector training, and feature importance plots.
+- `src/financial_watermark_detector/pipeline.py`
+  Orchestrates the end-to-end experiment and writes artifacts.
 
-### 2.2 模块职责
+## Output Artifacts
 
-#### DataLoader (数据加载器)
-- 负责加载各种格式的金融数据（CSV、Excel、Parquet等）
-- 数据预处理和清洗
-- 缺失值处理
-- 数据重采样
-
-#### FeatureExtractor (特征提取器)
-- 从原始时序数据中提取多维度特征
-- 支持多种特征组：统计特征、时域特征、频域特征、复杂度特征、水印特定特征
-- 滑动窗口特征提取
-- 特征标准化
-
-#### ModelFactory (模型工厂)
-- 统一管理各种机器学习模型
-- 支持多种算法：XGBoost、LightGBM、Random Forest等
-- 模型训练和预测
-- 模型保存和加载
-
-#### Evaluator (评估器)
-- 模型性能评估
-- 生成评估报告
-- 可视化评估结果（混淆矩阵、ROC曲线等）
-- 多模型对比
-
-#### WatermarkDetector (主检测器)
-- 整合所有组件
-- 提供统一的训练和检测接口
-- 配置管理
-- 结果输出
-
-## 3. 数据流
-
-```
-原始数据 → 数据加载 → 特征提取 → 模型训练/检测 → 结果输出
-    │          │          │           │            │
-    ▼          ▼          ▼           ▼            ▼
- CSV/Excel   DataFrame   特征矩阵    预测结果     报告/可视化
-```
-
-## 4. 特征工程
-
-### 4.1 特征分类
-
-| 特征组 | 描述 | 示例 |
-|--------|------|------|
-| Statistical | 统计特征 | 均值、标准差、偏度、峰度 |
-| Time Domain | 时域特征 | 收益率、趋势、自相关 |
-| Frequency Domain | 频域特征 | FFT、功率谱密度 |
-| Complexity | 复杂度特征 | 近似熵、分形维数 |
-| Watermark Specific | 水印特定特征 | LSB分析、差分模式 |
-
-### 4.2 特征提取流程
-
-1. 滑动窗口切分数据
-2. 对每个窗口计算各类特征
-3. 特征标准化
-4. 输出特征矩阵
-
-## 5. 模型设计
-
-### 5.1 支持的模型
-
-- **XGBoost**: 梯度提升树，高精度
-- **LightGBM**: 轻量级梯度提升，速度快
-- **Random Forest**: 随机森林，稳定可靠
-- **Gradient Boosting**: 梯度提升
-- **Logistic Regression**: 逻辑回归，简单快速
-- **SVM**: 支持向量机
-
-### 5.2 模型选择建议
-
-| 场景 | 推荐模型 | 原因 |
-|------|----------|------|
-| 精度优先 | XGBoost | 精度最高 |
-| 速度优先 | LightGBM | 训练推理快 |
-| 简单场景 | Logistic Regression | 简单可解释 |
-| 平衡选择 | Random Forest | 精度速度平衡 |
-
-## 6. 配置管理
-
-系统使用YAML配置文件管理参数：
-
-```yaml
-data:
-  time_column: timestamp
-  value_column: close
-
-features:
-  window_size: 60
-  step_size: 10
-
-model:
-  type: xgboost
-  params:
-    n_estimators: 100
-```
-
-## 7. 扩展性设计
-
-### 7.1 添加新特征
-
-1. 在 `FeatureExtractor` 中添加新的特征提取方法
-2. 在配置文件中注册新特征组
-3. 更新文档
-
-### 7.2 添加新模型
-
-1. 在 `ModelFactory.SUPPORTED_MODELS` 中添加新模型类型
-2. 在 `create_model()` 方法中实现模型创建逻辑
-3. 更新配置文档
-
-## 8. 性能优化
-
-### 8.1 特征提取优化
-- 使用NumPy向量化计算
-- 批量处理数据
-- 缓存中间结果
-
-### 8.2 模型训练优化
-- 使用多线程/多进程
-- 超参数自动调优
-- 早停机制
-
-## 9. 部署建议
-
-### 9.1 开发环境
-- Python 3.8+
-- 虚拟环境管理
-- 开发依赖安装
-
-### 9.2 生产环境
-- Docker容器化
-- 模型服务化
-- 监控和日志
-
-## 10. 安全考虑
-
-- 数据加密存储
-- 模型文件保护
-- 访问控制
-- 审计日志
+- `models/watermark_detector.joblib`
+- `data/watermark_detection_dataset.csv`
+- `reports/corpus_summary.json`
+- `reports/watermark_metrics.json`
+- `reports/watermark_feature_importance.png`
+- `reports/watermark_samples.json`

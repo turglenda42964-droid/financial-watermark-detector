@@ -1,0 +1,13 @@
+{
+  "num_rows": 5322,
+  "num_columns": 2,
+  "text_column": "Sentence",
+  "metadata_columns": [
+    "Sentiment"
+  ],
+  "sample_lengths": {
+    "mean_tokens": 20.698421645997744,
+    "median_tokens": 19.0,
+    "max_tokens": 81.0
+  }
+}

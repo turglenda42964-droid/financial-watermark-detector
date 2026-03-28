@@ -1,0 +1,82 @@
+[
+  {
+    "original_text": "For the last quarter of 2010 , Componenta 's net sales doubled to EUR131m from EUR76m for the same period a year earlier , while it moved to a zero pre-tax profit from a pre-tax loss of EUR7m .",
+    "watermarked_text": "For the last quarter of 2010 , Componenta 's net sales doubled to EUR131m from EUR76m for the same period a year earlier , while it moved to a zero pre-tax earnings from a pre-tax loss of EUR7m .",
+    "embed_stats": {
+      "candidate_count": 1.0,
+      "green_hit_count": 1.0,
+      "watermark_ratio": 1.0
+    },
+    "detect_stats": {
+      "token_count": 44.0,
+      "candidate_count": 1.0,
+      "preferred_hit_count": 1.0,
+      "preferred_ratio": 1.0,
+      "z_score": 1.0
+    }
+  },
+  {
+    "original_text": "The subdivision made sales revenues last year of EUR 480.7 million EUR 414.9 million in 2008 , and operating profits of EUR 44.5 million EUR 7.4 million .",
+    "watermarked_text": "The subdivision made sales revenues last year of EUR 480.7 million EUR 414.9 million in 2008 , and operating earnings of EUR 44.5 million EUR 7.4 million .",
+    "embed_stats": {
+      "candidate_count": 1.0,
+      "green_hit_count": 1.0,
+      "watermark_ratio": 1.0
+    },
+    "detect_stats": {
+      "token_count": 26.0,
+      "candidate_count": 1.0,
+      "preferred_hit_count": 1.0,
+      "preferred_ratio": 1.0,
+      "z_score": 1.0
+    }
+  },
+  {
+    "original_text": "Ahlstrom Corporation STOCK EXCHANGE ANNOUNCEMENT 7.2.2007 at 10.30 A total of 56,955 new shares of Ahlstrom Corporation have been subscribed with option rights under the company 's stock option programs I 2001 and II 2001 .",
+    "watermarked_text": "Ahlstrom Corporation SECURITY EXCHANGE ANNOUNCEMENT 7.2.2007 at 10.30 A total of 56,955 new shares of Ahlstrom Corporation have been subscribed with option rights under the company 's security option programs I 2001 and II 2001 .",
+    "embed_stats": {
+      "candidate_count": 3.0,
+      "green_hit_count": 2.0,
+      "watermark_ratio": 0.6666666666666666
+    },
+    "detect_stats": {
+      "token_count": 37.0,
+      "candidate_count": 3.0,
+      "preferred_hit_count": 2.0,
+      "preferred_ratio": 0.6666666666666666,
+      "z_score": 0.5773502691896258
+    }
+  },
+  {
+    "original_text": "$MSFT SQL Server revenue grew double-digit with SQL Server Premium revenue growing over 30% http://stks.co/ir2F",
+    "watermarked_text": "$MSFT SQL Server revenue grew double-digit with SQL Server Premium turnover growing over 30% http://stks.co/ir2F",
+    "embed_stats": {
+      "candidate_count": 2.0,
+      "green_hit_count": 1.0,
+      "watermark_ratio": 0.5
+    },
+    "detect_stats": {
+      "token_count": 21.0,
+      "candidate_count": 2.0,
+      "preferred_hit_count": 1.0,
+      "preferred_ratio": 0.5,
+      "z_score": 0.0
+    }
+  },
+  {
+    "original_text": "The company plans to increase the unit 's specialist staff to several dozen -- depending on the market situation during 2010 .",
+    "watermarked_text": "The company plans to increase the unit 's specialist staff to several dozen -- depending on the trading situation during 2010 .",
+    "embed_stats": {
+      "candidate_count": 2.0,
+      "green_hit_count": 1.0,
+      "watermark_ratio": 0.5
+    },
+    "detect_stats": {
+      "token_count": 20.0,
+      "candidate_count": 2.0,
+      "preferred_hit_count": 1.0,
+      "preferred_ratio": 0.5,
+      "z_score": 0.0
+    }
+  }
+]

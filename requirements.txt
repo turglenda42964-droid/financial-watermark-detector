@@ -1,56 +1,44 @@
-# 核心依赖
-numpy>=1.21.0
-pandas>=1.3.0
-scipy>=1.7.0
+# 基础数据处理
+pandas==2.2.0
+numpy==1.26.3
+matplotlib==3.8.3
+seaborn==0.13.2
+scipy==1.12.0
+
+# 金融数据
+yfinance==0.2.37
+tushare==1.2.89
+pandas-datareader==0.10.0
 
 # 机器学习
-scikit-learn>=1.0.0
-xgboost>=1.5.0
-lightgbm>=3.3.0
+scikit-learn==1.4.0
+xgboost==2.0.3
+lightgbm==4.1.0
+catboost==1.2
 
-# 深度学习（可选）
-torch>=1.10.0
-torchvision>=0.11.0
+# 深度学习
+pytorch==2.1.0
+torchvision==0.16.0
+transformers==4.36.2
 
-# 时序分析
-statsmodels>=0.13.0
-arch>=5.0.0
-
-# 特征工程
- tsfresh>=0.18.0
- tslearn>=0.5.0
-
-# 可视化
-matplotlib>=3.4.0
-seaborn>=0.11.0
-plotly>=5.0.0
-
-# Jupyter
-jupyter>=1.0.0
-ipython>=7.30.0
-notebook>=6.4.0
-
-# 数据处理
-pyarrow>=5.0.0
-openpyxl>=3.0.0
-
-# 配置管理
-pyyaml>=5.4.0
-omegaconf>=2.1.0
+# 可解释性
+shap==0.45.1
+lime==0.2.0.1
 
 # 工具库
-tqdm>=4.62.0
-click>=8.0.0
-joblib>=1.1.0
+jupyter==1.0.0
+notebook==7.0.6
+ipython==8.18.1
 
-# 测试
-pytest>=6.2.0
-pytest-cov>=3.0.0
+# 其他
+requests==2.31.0
+beautifulsoup4==4.12.2
+lxml==5.1.0
 
-# 代码质量
-black>=21.0.0
-flake8>=4.0.0
-mypy>=0.910
+# 时间序列
+tslearn==0.13.0
+statsmodels==0.14.1
 
-# 文档
-sphinx>=4.0.0
+# 量化工具
+backtrader==1.9.76.123
+pyfolio==0.9.2

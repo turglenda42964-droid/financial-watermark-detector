@@ -1,63 +1,22 @@
-# 金融时序数据水印检测系统 - 默认配置
+project:
+  name: financial-watermark-detector
+  task: financial-text-llm-watermarking
 
-# 数据配置
 data:
-  format: csv
-  time_column: timestamp
-  value_column: close
-  label_column: watermark_label
-  freq: null  # 重采样频率，如 '1min', '1H', '1D'
+  input_path: data/data.csv
+  fallback_input_path: data/data.cvs
+  text_column: Sentence
 
-# 特征工程配置
-features:
-  window_size: 60
-  step_size: 10
-  feature_groups:
-    - statistical      # 统计特征
-    - time_domain      # 时域特征
-    - frequency_domain # 频域特征
-    - complexity       # 复杂度特征
-    - watermark_specific # 水印特定特征
+watermark:
+  secret_key: fin-watermark-2026
+  strategy: lexical-greenlist
 
-# 模型配置
-model:
-  type: xgboost  # 可选: xgboost, lightgbm, random_forest, gradient_boosting, logistic_regression, svm
-  params:
-    n_estimators: 100
-    max_depth: 6
-    learning_rate: 0.1
-    subsample: 0.8
-    colsample_bytree: 0.8
-    random_state: 42
-    n_jobs: -1
-
-# 检测配置
 detection:
-  threshold: 0.5
-  batch_size: 1000
+  model: logistic_regression
+  test_size: 0.2
+  random_state: 42
 
-# 输出配置
-output:
-  save_features: true
-  save_model: true
-  save_predictions: true
-
-# 日志配置
-logging:
-  level: INFO
-  file: logs/detector.log
-  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-
-# 评估配置
-evaluation:
-  metrics:
-    - accuracy
-    - precision
-    - recall
-    - f1
-    - auc
-  plots:
-    - confusion_matrix
-    - roc_curve
-    - pr_curve
-    - feature_importance
+artifacts:
+  model_path: models/watermark_detector.joblib
+  dataset_path: data/watermark_detection_dataset.csv
+  metrics_path: reports/watermark_metrics.json
