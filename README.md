@@ -222,5 +222,5 @@ pytest tests/ -v
 
 - 作者: 懒洋洋
 - 邮箱: a15071477176@icloud.com
-- 项目链接: https://github.com/yourusername/financial-watermark-detector
+- 项目链接: (https://github.com/turglenda42964-droid/financial-watermark-detector)
 
