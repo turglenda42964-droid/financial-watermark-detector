@@ -5,15 +5,15 @@
 
 ## 项目简介
 
-本项目是一个专门用于检测金融时序数据中数字水印的机器学习系统。通过先进的特征工程和深度学习技术，能够高效、准确地识别金融数据中嵌入的隐藏水印信息。
+本项目是一个专门用于检测金融时序数据中数字水印的机器学习系统。通过较为先进的特征工程和深度学习技术，能够还行地识别金融数据中嵌入的隐藏水印信息。
 
 ## 主要特性
 
 - **多维度特征提取**: 从时域、频域、统计特征等多个维度提取水印特征
-- **多种检测算法**: 支持传统机器学习（XGBoost、LightGBM）和深度学习方法
+- **多种检测算法**: 传统机器学习（XGBoost、LightGBM）和深度学习方法
 - **高性能**: 优化的特征工程流程，支持大规模数据处理
 - **可扩展**: 模块化设计，易于添加新的检测算法和特征
-- **可视化**: 丰富的可视化工具，直观展示检测结果
+- **可视化**: 做了几个图检测结果
 
 ## 项目结构
 
@@ -80,12 +80,10 @@ cd financial_watermark_detector
 # 创建虚拟环境
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
-# 或
-venv\Scripts\activate  # Windows
 
 # 安装依赖
 pip install -r requirements.txt
-```
+
 
 ### 基本使用
 
@@ -222,10 +220,7 @@ pytest tests/ -v
 
 ## 联系方式
 
-- 作者: Your Name
-- 邮箱: your.email@example.com
+- 作者: 懒洋洋
+- 邮箱: a15071477176@icloud.com
 - 项目链接: https://github.com/yourusername/financial-watermark-detector
 
-## 致谢
-
-感谢所有为本项目做出贡献的开发者！
