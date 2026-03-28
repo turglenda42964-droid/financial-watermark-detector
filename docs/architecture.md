@@ -5,7 +5,7 @@
 The project follows a simple research pipeline:
 
 1. Load a financial text corpus from `data/`.
-2. Apply a lightweight lexical watermark to create paired samples.
+2. Apply a lightweight lexical watermark to create paired samples.（有监督学习）
 3. Extract watermark-aware statistical features.
 4. Train a detector to distinguish original vs watermarked text.
 5. Export reports, figures, and reproducible artifacts.
@@ -29,3 +29,4 @@ The project follows a simple research pipeline:
 - `reports/watermark_metrics.json`
 - `reports/watermark_feature_importance.png`
 - `reports/watermark_samples.json`
+就做了一个比较完整的文本水印检测流程。首先对金融文本进行词汇级水印嵌入，构建带标签的数据集，然后通过特征工程提取统计特征，并使用逻辑回归模型进行分类检测。整个系统采用流水线结构，支持实验复现和结果分析。但目前模型比较简单（自己太菜了），水印策略也较基础，在复杂的情况下会出现优化空间。
