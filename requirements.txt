@@ -1,0 +1,56 @@
+# 核心依赖
+numpy>=1.21.0
+pandas>=1.3.0
+scipy>=1.7.0
+
+# 机器学习
+scikit-learn>=1.0.0
+xgboost>=1.5.0
+lightgbm>=3.3.0
+
+# 深度学习（可选）
+torch>=1.10.0
+torchvision>=0.11.0
+
+# 时序分析
+statsmodels>=0.13.0
+arch>=5.0.0
+
+# 特征工程
+ tsfresh>=0.18.0
+ tslearn>=0.5.0
+
+# 可视化
+matplotlib>=3.4.0
+seaborn>=0.11.0
+plotly>=5.0.0
+
+# Jupyter
+jupyter>=1.0.0
+ipython>=7.30.0
+notebook>=6.4.0
+
+# 数据处理
+pyarrow>=5.0.0
+openpyxl>=3.0.0
+
+# 配置管理
+pyyaml>=5.4.0
+omegaconf>=2.1.0
+
+# 工具库
+tqdm>=4.62.0
+click>=8.0.0
+joblib>=1.1.0
+
+# 测试
+pytest>=6.2.0
+pytest-cov>=3.0.0
+
+# 代码质量
+black>=21.0.0
+flake8>=4.0.0
+mypy>=0.910
+
+# 文档
+sphinx>=4.0.0
