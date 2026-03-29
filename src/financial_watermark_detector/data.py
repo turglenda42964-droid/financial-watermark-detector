@@ -1,12 +1,12 @@
 from __future__ import annotations
-
+#1.黑箱运行
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
 import pandas as pd
 
-
+#1.统一数据分析的语法糖（统一格式）
 @dataclass
 class CorpusSummary:
     num_rows: int
@@ -15,10 +15,10 @@ class CorpusSummary:
     metadata_columns: list[str]
     sample_lengths: dict[str, float]
 
-
 class FinancialTextDataLoader:
     """Load financial text corpus from `data/`."""
-
+    
+#2.选定/初始化项目路径
     def __init__(self, project_root: Optional[Path | str] = None):
         self.project_root = Path(project_root) if project_root else Path(__file__).resolve().parents[2]
         self.data_dir = self.project_root / "data"
@@ -34,7 +34,8 @@ class FinancialTextDataLoader:
                 return path
         names = ", ".join(path.name for path in candidates)
         raise FileNotFoundError(f"Missing dataset. Expected one of: {names}")
-
+        
+#3.定义数据类型，数据规范化清洗
     def load_corpus(self, filename: Optional[str] = None, text_column: str = "Sentence") -> pd.DataFrame:
         data_path = self.resolve_data_path(filename)
         df = pd.read_csv(data_path)
@@ -47,7 +48,8 @@ class FinancialTextDataLoader:
         df = df.drop_duplicates(subset=[text_column]).reset_index(drop=True)
         self.data = df
         return df
-
+#4.数据统计
+    
     def summarize_corpus(self, df: Optional[pd.DataFrame] = None, text_column: str = "Sentence") -> CorpusSummary:
         corpus = df if df is not None else self.data
         if corpus is None:
@@ -64,3 +66,4 @@ class FinancialTextDataLoader:
                 "max_tokens": float(lengths.max()),
             },
         )
+#总结：适用于全部文本/情绪分析的数据类型，但黑河运行，缺少项目日志
