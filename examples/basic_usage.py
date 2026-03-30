@@ -19,3 +19,4 @@ print("\nWatermarked:")
 print(watermarked_text)
 print("\nEmbed stats:", embed_stats)
 print("Detect stats:", detect_stats)
+#做了一个简单的“嵌入-检测”的闭环演示
