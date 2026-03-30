@@ -4,22 +4,18 @@
 [![Task](https://img.shields.io/badge/Task-Financial%20Text%20LLM%20Watermarking-0A7EA4)](#overview)
 [![License](https://img.shields.io/badge/License-MIT-F2C94C)](#license)
 
-A research-oriented project for **LLM watermark generation and detection in financial text**.  
-It uses a financial text corpus to synthesize paired original/watermarked samples, trains a detector, and exports reproducible artifacts for demos, reports, and GitHub presentation.
+老师，我最近思考了一下自己方向，想了一下llm水印问题方向，非常受启发。我目前搭建的这个金融文本水印检测框架，正好可以作为一个强大的实验平台。我想沿着您工作的前沿思路，做一个深入的领域应用与拓展，目标是产出有明确应用背景的学术论文。希望能得到您的指导。
 
 ## Overview
 
-This repository focuses on a practical question:
+这个仓库聚焦于一个实际问题：我们能否在保持语义的前提下，为金融文本注入轻量级水印，并可靠地检测这些水印？
 
-**Can we inject lightweight watermarks into financial text while preserving semantics, and then detect those watermarks reliably?**
-
-The current version provides:
-
-- A corpus loader for financial text datasets
-- A lightweight lexical watermark engine
-- A paired dataset builder for watermark detection experiments
-- A logistic-regression detector with interpretable features
-- Exported reports, samples, and feature-importance figures
+## 当前版本提供了一整套工具来实现上述目标，主要包括以下组件：
+金融文本数据集语料库加载器
+一个轻量级的词法水印引擎（现在自己能力不够，我的升级方案是学习借用llm，设计更隐蔽、更鲁棒的嵌入方法）
+用于水印检测实验的配对数据集构建器（可生成“原始文本-带水印文本”对，用于训练和测试）
+一个基于逻辑回归、具有可解释特征的检测器（提取金融文本特有的统计特征（本科和毕设在做类似的），然后后面学一些深度学习检测器啥的(目前在学了））
+导出的报告、样本和特征重要性图表（用于分析和展示实验结果）
 
 ## Repository Structure
 
@@ -32,12 +28,10 @@ financial-watermark-detector/
 │   └── watermark_detection_dataset.csv
 ├── docs/
 │   └── architecture.md
-├── examples/
-│   └── basic_usage.py
+├── examples
+│   └── basic_usage._py
 ├── models/
 │   └── watermark_detector.joblib
-├── notebooks/
-│   └── 01_data_exploration.ipynb
 ├── reports/
 │   ├── corpus_summary.json
 │   ├── watermark_feature_importance.png
